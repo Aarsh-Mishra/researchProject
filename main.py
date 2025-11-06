@@ -67,7 +67,7 @@ imageEvaluatorAgent = AssistantAgent(
 
         **ROLE 2: COMPILE THE FINAL REPORT**
         - Once the discussion is complete, your **VERY LAST MESSAGE** must be the final report.
-        - This message MUST start with the word **DONE** followed immediately by a single, valid JSON object.
+        - This message MUST start valid JSON object followed by the word "DONE".
         - To build this JSON, you must **review the entire conversation history** and summarize it.
 
         **JSON SCHEMA:**
@@ -76,7 +76,7 @@ imageEvaluatorAgent = AssistantAgent(
           "possible_interpretations": [
             {
               "description": "A detailed description of one key hypothesis discussed.",
-              "confidence_score": 10,
+              "confidence_score": 10,  # 0-10 scale
               "reasoning_for_score": "Justification for this score, referencing visual evidence and the discussion."
             }
           ],
@@ -88,7 +88,7 @@ imageEvaluatorAgent = AssistantAgent(
         - The `possible_interpretations` array MUST summarize the main ideas from your discussion (e.g., the initial "wrong" idea and the final "correct" one).
         - The `reasoning_for_score` should explain WHY an idea was kept or rejected.
         - `word_count` is the word count of the `final_conclusion` string.
-        - **DO NOT** include any other text, apologies, or explanations like "Here is the JSON:" in your final message. Your *entire* final message must be ONLY the word `DONE` followed by the `{...}` JSON object.
+        - **DO NOT** include any other text, apologies, or explanations like "Here is the JSON:" in your final message. Your *entire* final message must start with `{...}` JSON object followed by the word "DONE".
         """
     )
 

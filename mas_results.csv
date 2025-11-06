@@ -1,3 +1,5 @@
 image_file,blur_radius,run_num,final_conclusion,final_confidence,word_count,processing_time
 C:\Users\hp\Downloads\test_image2.jpg,image2,1,"The image most likely depicts the interior of a Bohemian Cafe/Tea Room, characterized by its natural colors, soft lighting, organic plant arrangements, and inviting atmosphere.",9,30,38.857779026031494
 C:\Users\hp\Downloads\test_image2.jpg,image2,1,"The image most likely shows a view into an informal garden, framed by a plant-covered pergola or archway, possibly during late morning or early afternoon.",8.5,29,41.62801790237427
+C:\Users\hp\Downloads\test_image2.jpg,image2,1,"Due to the blurring, a definitive interpretation is not possible. The most plausible scenarios involve either an indoor space with an outdoor view or a reflection of a garden scene. Further information or a clearer image would be needed to resolve this ambiguity.",15,52,41.2626838684082
+C:\Users\hp\Downloads\test_image2.jpg,image2,1,"The blurred image most likely depicts the interior of a florist or plant nursery, characterized by an abundance of plants and a curated, organized environment.",7,25,38.72372364997864
