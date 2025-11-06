@@ -16,6 +16,8 @@ from autogen_agentchat.conditions import MaxMessageTermination,TextMentionTermin
 from autogen_core import Image as AGImage
 from PIL import Image
 
+from sas_test import run_sas_test
+
 # --- 1. SETUP (Same as your file) ---
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
@@ -170,10 +172,8 @@ async def run_mas_test(image_path: str):
 # --- 4. NEW MAIN FUNCTION (The "Test Harness") ---
 async def main():
     
-    # !!! --- IMPORTANT --- !!!
-    # Update this list with your image paths
     IMAGE_FILES_TO_TEST = [
-        "C:\\Users\\hp\\Downloads\\test_image2.jpg" # Use your full list here
+        "C:\\Users\\hp\\Downloads\\test_image2.jpg"
         # "test_image_blur_0.jpg",
         # "test_image_blur_2.jpg",
         # "test_image_blur_5.jpg",
@@ -181,27 +181,20 @@ async def main():
         # "test_image_blur_15.jpg",
         # "test_image_blur_20.jpg",
     ]
+    NUM_RUNS = 1 # Set to 3-5 for real experiment
     
-    # Run each test 3 times as discussed
-    NUM_RUNS = 1 # Set this back to 3 or 5 for the real experiment
-    
-    # This is the output file for your data
-    CSV_OUTPUT_FILE = "mas_results.csv"
+    # One CSV file for ALL results
+    CSV_OUTPUT_FILE = "comparative_results.csv"
 
-    print(f"Starting MAS experiment... Appending results to {CSV_OUTPUT_FILE}")
-
-    # --- THIS IS THE NEW LOGIC ---
-    # 1. Check if the file already exists to decide on writing the header
+    print(f"Starting experiment... Appending results to {CSV_OUTPUT_FILE}")
     file_exists = os.path.exists(CSV_OUTPUT_FILE)
 
-    # 2. Open the file in 'append' mode ('a')
-    #    'newline' and 'encoding' are important for CSV
     with open(CSV_OUTPUT_FILE, 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         
-        # 3. If the file is new, write the header row
         if not file_exists:
             writer.writerow([
+                "system_type", # NEW: "SAS" or "MAS"
                 "image_file", 
                 "blur_radius", 
                 "run_num", 
@@ -214,49 +207,47 @@ async def main():
         else:
             print(f"File exists. Appending new results...")
             
-        # --- THE REST OF THE FUNCTION IS THE SAME ---
-
-        # Loop 1: Iterate through each image
         for img_file in IMAGE_FILES_TO_TEST:
-            
             if not os.path.exists(img_file):
                 print(f"WARNING: Image not found '{img_file}'. Skipping.")
                 continue
-
-            try:
-                # This logic will fail on your "test_image2.jpg".
-                # A safer version:
-                base_name = os.path.basename(img_file) # "test_image2.jpg"
-                file_name_no_ext = os.path.splitext(base_name)[0] # "test_image2"
-                blur_radius = file_name_no_ext.split('_')[-1] # "image2"
-            except:
-                blur_radius = "unknown"
-
+            
+            base_name = os.path.basename(img_file)
+            file_name_no_ext = os.path.splitext(base_name)[0]
+            blur_radius = file_name_no_ext.split('_')[-1]
+            
             print(f"--- Processing Image: {img_file} (Blur: {blur_radius}) ---")
 
-            # Loop 2: Run the test 3-5 times
             for i in range(1, NUM_RUNS + 1):
-                print(f"  Starting Run {i}/{NUM_RUNS}...")
+                print(f"\n  Starting Run {i}/{NUM_RUNS}...")
                 
-                data = await run_mas_test(img_file)
-                
-                if data:
+                # --- RUN MAS TEST ---
+                print("  (Running MAS...)")
+                mas_data = await run_mas_test(img_file)
+                if mas_data:
                     try:
-                        # Get the confidence of the FINAL interpretation
-                        final_confidence = data['possible_interpretations'][-1]['confidence_score']
-                        
-                        # Write the data to our CSV file
+                        final_conf = mas_data['possible_interpretations'][-1]['confidence_score']
                         writer.writerow([
-                            img_file,
-                            blur_radius,
-                            i,
-                            data['final_conclusion'],
-                            final_confidence,
-                            data['word_count'],
-                            data['processing_time']
+                            "MAS", img_file, blur_radius, i,
+                            mas_data['final_conclusion'], final_conf,
+                            mas_data['word_count'], mas_data['processing_time']
                         ])
                     except Exception as e:
-                        print(f"  ERROR: Could not extract data from JSON. {e}")
+                        print(f"  ERROR: Could not save MAS data. {e}")
+
+                # --- RUN SAS TEST ---
+                print("  (Running SAS...)")
+                sas_data = await run_sas_test(img_file, model_client)
+                if sas_data:
+                    try:
+                        final_conf = sas_data['possible_interpretations'][-1]['confidence_score']
+                        writer.writerow([
+                            "SAS", img_file, blur_radius, i,
+                            sas_data['final_conclusion'], final_conf,
+                            sas_data['word_count'], sas_data['processing_time']
+                        ])
+                    except Exception as e:
+                        print(f"  ERROR: Could not save SAS data. {e}")
 
     print("--- Experiment Complete ---")
     await model_client.close()

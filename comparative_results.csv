@@ -1,0 +1,5 @@
+system_type,image_file,blur_radius,run_num,final_conclusion,final_confidence,word_count,processing_time
+MAS,C:\Users\hp\Downloads\test_image2.jpg,image2,1,"Based on the analysis of colors, shapes, and potential objects within the blurred image, the most plausible interpretation is that it depicts the interior of a cafe or restaurant with plants and/or a view to an outdoor garden.",2,41,37.18440270423889
+SAS,C:\Users\hp\Downloads\test_image2.jpg,image2,1,"The image most likely depicts an indoor or enclosed space containing plants, possibly viewed through a blurred glass panel.",6,0,4.364808797836304
+MAS,C:\Users\hp\Downloads\test_image2.jpg,image2,1,"The image is most likely a blurred view of a window with plants, potentially with reflections on the glass contributing to the distortion.",9,22,34.79745554924011
+SAS,C:\Users\hp\Downloads\test_image2.jpg,image2,1,"The image most likely depicts a view through a window onto a lush garden or greenhouse setting. The blurry nature of the image makes precise identification difficult, but the abundance of greenery suggests a natural or horticultural environment.",6,92,6.337888717651367
