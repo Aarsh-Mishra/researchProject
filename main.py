@@ -146,7 +146,7 @@ async def run_mas_test(image_path: str):
     # 4. Parse the final JSON output (This is the NEW, ROBUST logic)
     try:
         # Get the content of the very last message
-        last_message_content = result.messages[-1].content
+        last_message_content = result.messages[-2].content
         
         # Find the start of the JSON object
         json_start_pos = last_message_content.find('{')
@@ -247,6 +247,7 @@ async def main():
                 if sas_data:
                     try:
                         final_conf = sas_data['possible_interpretations'][-1]['confidence_score']
+                        word_count = sas_data.get('word_count', 0)
                         writer.writerow([
                             "SAS", img_file, blur_radius, i,
                             sas_data['final_conclusion'], final_conf,
