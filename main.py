@@ -173,15 +173,14 @@ async def run_mas_test(image_path: str):
 async def main():
     
     IMAGE_FILES_TO_TEST = [
-        "C:\\Users\\hp\\Downloads\\test_image2.jpg"
-        # "test_image_blur_0.jpg",
-        # "test_image_blur_2.jpg",
-        # "test_image_blur_5.jpg",
-        # "test_image_blur_10.jpg",
-        # "test_image_blur_15.jpg",
-        # "test_image_blur_20.jpg",
+        "blurred_dataset\\my_source_image_blur_0.jpg",
+        "blurred_dataset\\my_source_image_blur_2.jpg",
+        "blurred_dataset\\my_source_image_blur_5.jpg",
+        "blurred_dataset\\my_source_image_blur_10.jpg",
+        "blurred_dataset\\my_source_image_blur_15.jpg",
+        "blurred_dataset\\my_source_image_blur_20.jpg",
     ]
-    NUM_RUNS = 1 # Set to 3-5 for real experiment
+    NUM_RUNS = 3 # Set to 3-5 for real experiment
     
     # One CSV file for ALL results
     CSV_OUTPUT_FILE = "comparative_results.csv"
