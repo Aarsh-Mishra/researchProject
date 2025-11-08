@@ -143,32 +143,35 @@ async def run_mas_test(image_path: str):
     print("--- End Conversation ---\n")
     # --- END OF ADDED LINES ---
 
-    # 4. Parse the final JSON output (This is the NEW, ROBUST logic)
     try:
-        # Get the content of the very last message
-        last_message_content = result.messages[-2].content
+        # --- NEW ROBUST FINDER ---
+        # Loop backwards from the end of the chat to find the JSON
+        last_message_content = ""
+        for msg in reversed(result.messages):
+            if msg.content and "DONE" in msg.content and "{" in msg.content:
+                last_message_content = msg.content
+                break  # Found it!
         
+        if not last_message_content:
+            # If we looped and found nothing
+            print("  ERROR: Could not find a 'DONE' + JSON message in the chat history.")
+            return None
+        # --- END OF ROBUST FINDER ---
+
         # Find the start of the JSON object
         json_start_pos = last_message_content.find('{')
         
-        if json_start_pos == -1 or "DONE" not in last_message_content:
-            print("  ERROR: 'DONE' or '{' not found in last message.")
-            return None
-
         # Extract the JSON string (starting from the first '{')
         json_string = last_message_content[json_start_pos:]
         
-        # --- THIS IS THE FIX ---
         # Use JSONDecoder.raw_decode()
-        # This reads ONE valid JSON object and stops, ignoring any extra "garbage" data
         decoder = JSONDecoder()
         data, index = decoder.raw_decode(json_string) 
-        # 'data' is now our clean Python dictionary
         
         # Add the processing time to our data
         data['processing_time'] = processing_time
         
-        print(f"  Success (and ignored garbage data). Time: {processing_time:.2f}s")
+        print(f"  Success (MAS). Time: {processing_time:.2f}s")
         return data
 
     except Exception as e:
