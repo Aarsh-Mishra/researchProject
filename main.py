@@ -63,7 +63,7 @@ imageEvaluatorAgent = AssistantAgent(
         model_client= model_client,
         system_message=
         """
-You are an expert Evaluator agent. You have two critical roles.
+        You are an expert Evaluator agent. You have two critical roles.
 
         **ROLE 1: COLLABORATE & CRITIQUE**
         - You will receive the Explainer's analysis of a blurred image.
@@ -120,7 +120,7 @@ async def run_mas_test(image_path: str):
     )
     
     # 2. Set up the team (same as your original)
-    termination_condition = MaxMessageTermination(10) | TextMentionTermination('DONE')
+    termination_condition = MaxMessageTermination(20) | TextMentionTermination('DONE')
     team = RoundRobinGroupChat(
         participants= [imageExplainerAgent, imageEvaluatorAgent],
         termination_condition=termination_condition,
@@ -143,18 +143,20 @@ async def run_mas_test(image_path: str):
     print("--- End Conversation ---\n")
     # --- END OF ADDED LINES ---
 
+    # 4. Parse the final JSON output (This is the FINAL, 100% ROBUST logic)
     try:
         # --- NEW ROBUST FINDER ---
         # Loop backwards from the end of the chat to find the JSON
         last_message_content = ""
         for msg in reversed(result.messages):
-            if msg.content and "DONE" in msg.content and "{" in msg.content:
+            # Find the first message from 'evaluator' that has a '{'
+            if msg.source == 'evaluator' and msg.content and "{" in msg.content:
                 last_message_content = msg.content
                 break  # Found it!
         
         if not last_message_content:
             # If we looped and found nothing
-            print("  ERROR: Could not find a 'DONE' + JSON message in the chat history.")
+            print("  ERROR: Could not find a JSON message from 'evaluator' in the chat history.")
             return None
         # --- END OF ROBUST FINDER ---
 
@@ -175,7 +177,7 @@ async def run_mas_test(image_path: str):
         return data
 
     except Exception as e:
-        print(f"  ERROR parsing JSON: {e}")
+        print(f"  ERROR parsing JSON (MAS): {e}")
         print(f"  Raw output was: {last_message_content}")
         return None
 
@@ -183,14 +185,11 @@ async def run_mas_test(image_path: str):
 async def main():
     
     IMAGE_FILES_TO_TEST = [
-        "blurred_dataset\\test_image_blur_0.jpg",
-        "blurred_dataset\\test_image_blur_2.jpg",
-        "blurred_dataset\\test_image_blur_5.jpg",
         "blurred_dataset\\test_image_blur_10.jpg",
         "blurred_dataset\\test_image_blur_15.jpg",
         "blurred_dataset\\test_image_blur_20.jpg",
     ]
-    NUM_RUNS = 1 # Set to 3-5 for real experiment
+    NUM_RUNS = 3 # Set to 3-5 for real experiment
     
     # One CSV file for ALL results
     CSV_OUTPUT_FILE = "comparative_results.csv"
@@ -244,20 +243,23 @@ async def main():
                     except Exception as e:
                         print(f"  ERROR: Could not save MAS data. {e}")
 
+
                 # --- RUN SAS TEST ---
                 print("  (Running SAS...)")
                 sas_data = await run_sas_test(img_file, model_client)
                 if sas_data:
-                    try:
-                        final_conf = sas_data['possible_interpretations'][-1]['confidence_score']
-                        word_count = sas_data.get('word_count', 0)
-                        writer.writerow([
-                            "SAS", img_file, blur_radius, i,
-                            sas_data['final_conclusion'], final_conf,
-                            sas_data['word_count'], sas_data['processing_time']
-                        ])
-                    except Exception as e:
-                        print(f"  ERROR: Could not save SAS data. {e}")
+                        try:
+                            final_conf = sas_data['possible_interpretations'][-1]['confidence_score']
+                                # --- THIS IS THE FIX ---
+                            word_count = sas_data.get('word_count', 0) 
+                                # --- END OF FIX ---
+                            writer.writerow([
+                                "SAS", img_file, blur_radius, i,
+                                sas_data['final_conclusion'], final_conf,
+                                word_count, sas_data['processing_time']
+                            ])
+                        except Exception as e:
+                            print(f"  ERROR: Could not save SAS data. {e}")
 
     print("--- Experiment Complete ---")
     await model_client.close()

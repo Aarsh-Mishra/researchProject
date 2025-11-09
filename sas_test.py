@@ -34,7 +34,7 @@ Do not include any introductory text, concluding remarks, markdown formatting su
     }
   ],
   "final_conclusion": "A single, synthesized conclusion about the most likely content of the image.",
-  "word_count": 0
+  "word_count": number_of_words_in_final_conclusion
 }
 """
 
