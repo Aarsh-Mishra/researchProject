@@ -1,0 +1,14 @@
+system_type,image_file,blur_radius,run_num,final_conclusion,final_confidence,word_count,processing_time
+MAS,blurred_dataset\test_image_blur_10.jpg,10,1,"The image likely depicts elephants in an African savanna environment near a watering hole, supported by the shapes, reflections, landscape, and vegetation.",9,27,47.72331190109253
+SAS,blurred_dataset\test_image_blur_10.jpg,10,1,"The image likely depicts a group of elephants, including a baby, near a watering hole in a landscape featuring a grassy plain, bushes, and distant mountains.",3,25,5.379012107849121
+MAS,blurred_dataset\test_image_blur_10.jpg,10,2,"The image likely depicts elephants in an African savanna environment near a watering hole, supported by the shapes, reflections, landscape, and vegetation.",8.5,27,56.23371243476868
+SAS,blurred_dataset\test_image_blur_10.jpg,10,2,"The image most likely shows a group of elephants, including adults and a calf, near a watering hole in an African savanna setting. The elephants' reflections are visible in the water.",4,29,6.5426414012908936
+MAS,blurred_dataset\test_image_blur_10.jpg,10,3,"The image most likely depicts elephants in an African savanna environment, based on the shapes, reflections, vegetation, and soil color.",8,22,71.61143183708191
+SAS,blurred_dataset\test_image_blur_10.jpg,10,3,"The image most likely depicts a group of elephants, including a calf, near a watering hole in an African wildlife setting, with vegetation, mountains, and reflections in the water.",4,29,5.965703725814819
+MAS,blurred_dataset\test_image_blur_15.jpg,15,1,"Based on the shapes, reflections, vegetation, and soil, the image most likely shows elephants in an African savanna environment.",8,20,98.20158243179321
+SAS,blurred_dataset\test_image_blur_15.jpg,15,1,The image most likely depicts elephants near a waterhole in an African savanna.,3,12,6.346781015396118
+MAS,blurred_dataset\test_image_blur_15.jpg,15,2,"Given the shapes, reflections, and savanna environment, the blurred image most likely depicts elephants in Africa.",8,16,121.47840166091919
+SAS,blurred_dataset\test_image_blur_15.jpg,15,2,The image most likely depicts a group of elephants near a watering hole in a savanna environment.,3,15,7.609756231307983
+MAS,blurred_dataset\test_image_blur_15.jpg,15,3,The image most likely depicts elephants in an African savanna.,8,10,130.09782719612122
+SAS,blurred_dataset\test_image_blur_15.jpg,15,3,"The image likely depicts a group of elephants, including adults and possibly a calf, in their natural savanna habitat near a watering hole.",6,22,6.202999830245972
+MAS,blurred_dataset\test_image_blur_20.jpg,20,1,"Given the elephants, water reflections, and savanna, the image depicts Africa.",8,10,161.55043125152588
