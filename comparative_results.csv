@@ -1,14 +1,37 @@
 system_type,image_file,blur_radius,run_num,final_conclusion,final_confidence,word_count,processing_time
-MAS,blurred_dataset\test_image_blur_10.jpg,10,1,"The image likely depicts elephants in an African savanna environment near a watering hole, supported by the shapes, reflections, landscape, and vegetation.",9,27,47.72331190109253
-SAS,blurred_dataset\test_image_blur_10.jpg,10,1,"The image likely depicts a group of elephants, including a baby, near a watering hole in a landscape featuring a grassy plain, bushes, and distant mountains.",3,25,5.379012107849121
-MAS,blurred_dataset\test_image_blur_10.jpg,10,2,"The image likely depicts elephants in an African savanna environment near a watering hole, supported by the shapes, reflections, landscape, and vegetation.",8.5,27,56.23371243476868
-SAS,blurred_dataset\test_image_blur_10.jpg,10,2,"The image most likely shows a group of elephants, including adults and a calf, near a watering hole in an African savanna setting. The elephants' reflections are visible in the water.",4,29,6.5426414012908936
-MAS,blurred_dataset\test_image_blur_10.jpg,10,3,"The image most likely depicts elephants in an African savanna environment, based on the shapes, reflections, vegetation, and soil color.",8,22,71.61143183708191
-SAS,blurred_dataset\test_image_blur_10.jpg,10,3,"The image most likely depicts a group of elephants, including a calf, near a watering hole in an African wildlife setting, with vegetation, mountains, and reflections in the water.",4,29,5.965703725814819
-MAS,blurred_dataset\test_image_blur_15.jpg,15,1,"Based on the shapes, reflections, vegetation, and soil, the image most likely shows elephants in an African savanna environment.",8,20,98.20158243179321
-SAS,blurred_dataset\test_image_blur_15.jpg,15,1,The image most likely depicts elephants near a waterhole in an African savanna.,3,12,6.346781015396118
-MAS,blurred_dataset\test_image_blur_15.jpg,15,2,"Given the shapes, reflections, and savanna environment, the blurred image most likely depicts elephants in Africa.",8,16,121.47840166091919
-SAS,blurred_dataset\test_image_blur_15.jpg,15,2,The image most likely depicts a group of elephants near a watering hole in a savanna environment.,3,15,7.609756231307983
-MAS,blurred_dataset\test_image_blur_15.jpg,15,3,The image most likely depicts elephants in an African savanna.,8,10,130.09782719612122
-SAS,blurred_dataset\test_image_blur_15.jpg,15,3,"The image likely depicts a group of elephants, including adults and possibly a calf, in their natural savanna habitat near a watering hole.",6,22,6.202999830245972
-MAS,blurred_dataset\test_image_blur_20.jpg,20,1,"Given the elephants, water reflections, and savanna, the image depicts Africa.",8,10,161.55043125152588
+MAS,blurred_dataset\test_image_blur_10.jpg,10,1,"The image most likely depicts a group of elephants in a savanna-like environment near a calm body of water, with a mountain range visible in the distance, engaging in activities such as drinking and moving.",9,42,66.20765733718872
+SAS,blurred_dataset\test_image_blur_10.jpg,10,1,"The image most likely depicts a group of elephants, including a baby, near a watering hole in an African savanna environment.",4,20,7.196633338928223
+MAS,blurred_dataset\test_image_blur_10.jpg,10,2,"The image most likely depicts a group of elephants in a savanna-like environment adjacent to a calm body of water, with a gently sloping terrain and a mountain range visible in the distance. The vegetation's brownish-yellow color may be due to seasonal dormancy.",9,48,59.82530379295349
+SAS,blurred_dataset\test_image_blur_10.jpg,10,2,"The image most likely shows a group of elephants, including adults and a baby, near a watering hole in a savanna-like environment.",3,22,16.092246770858765
+MAS,blurred_dataset\test_image_blur_10.jpg,10,3,"The image most likely shows at least four elephants in a relatively flat, dry environment with sparse vegetation near a body of water, with hills or mountains in the hazy distance. Reflections are visible on the water's surface.",9,43,68.63134932518005
+SAS,blurred_dataset\test_image_blur_10.jpg,10,3,"The image depicts a group of elephants, including at least one baby, near a water source in what appears to be an African savanna environment, likely photographed in their natural habitat.",6,30,23.167385816574097
+MAS,blurred_dataset\test_image_blur_15.jpg,15,1,"The image most likely depicts a family of elephants, including a possible calf, near a watering hole within a savanna-like environment.",8,24,78.40329170227051
+SAS,blurred_dataset\test_image_blur_15.jpg,15,1,The image most likely shows a group of elephants near a watering hole in a savanna-like environment.,4,16,9.577227115631104
+MAS,blurred_dataset\test_image_blur_15.jpg,15,2,The image most likely shows elephants gathered around what appears to be a crucial medium-sized pond or small lake within a savanna-like environment.,9,25,62.395732402801514
+SAS,blurred_dataset\test_image_blur_15.jpg,15,2,The image most likely shows a group of elephants near a watering hole in a savannah-like environment.,6,16,6.170141220092773
+MAS,blurred_dataset\test_image_blur_15.jpg,15,3,"The image most likely depicts elephants near a watering hole in a savanna or woodland environment, with a composition that emphasizes the elephants in their habitat.",8,27,60.45738744735718
+SAS,blurred_dataset\test_image_blur_15.jpg,15,3,The image most likely shows a group of elephants near a watering hole in a savanna environment.,4,15,6.273583173751831
+MAS,blurred_dataset\test_image_blur_20.jpg,20,1,"The image most likely depicts elephants in a purely natural savanna or open woodland environment near a watering hole, without any obvious signs of human influence.",9,29,83.17207598686218
+SAS,blurred_dataset\test_image_blur_20.jpg,20,1,The image most likely depicts a herd of elephants near a watering hole in a savanna environment.,3,15,5.957539081573486
+MAS,blurred_dataset\test_image_blur_20.jpg,20,2,"The image most likely depicts elephants in their natural habitat, a savanna or woodland environment near a watering hole, possibly engaged in drinking, bathing, and social interactions.",8,28,129.79034614562988
+SAS,blurred_dataset\test_image_blur_20.jpg,20,2,"The image most likely depicts a group of elephants near a watering hole in a natural landscape, although the blurriness introduces some ambiguity.",4,25,8.157017230987549
+MAS,blurred_dataset\test_image_blur_20.jpg,20,3,"The image most likely depicts elephants near a watering hole in their natural habitat, which is a savanna or open woodland environment.",8,27,97.042715549469
+SAS,blurred_dataset\test_image_blur_20.jpg,20,3,The image most likely shows a group of elephants near a watering hole in a natural landscape.,3,15,9.201350212097168
+MAS,blurred_dataset\test_image_blur_0.jpg,0,1,"The image depicts a scene of peaceful coexistence, a family of elephants in their natural habitat, drinking and resting together.",10,22,72.45874524116516
+SAS,blurred_dataset\test_image_blur_0.jpg,0,1,"The image shows a group of elephants, including adults and a baby, near a watering hole in an African landscape.",10,19,6.764796018600464
+MAS,blurred_dataset\test_image_blur_0.jpg,0,2,The image presents a serene and tranquil scene of elephants in their natural habitat.,10,15,99.3708975315094
+SAS,blurred_dataset\test_image_blur_0.jpg,0,2,"The image depicts a group of elephants, including a mother and baby, at a watering hole within a grassy landscape with distant mountains.",10,22,7.593906402587891
+MAS,blurred_dataset\test_image_blur_0.jpg,0,3,The image evokes a sense of serene and resilient elephants surviving in their natural habitat.,10,14,119.73348093032837
+SAS,blurred_dataset\test_image_blur_0.jpg,0,3,"The image depicts a group of elephants, including adults and a calf, near a watering hole in what appears to be an African savanna or a similar natural habitat.",6,30,8.012141942977905
+MAS,blurred_dataset\test_image_blur_2.jpg,2,1,The image conveys a theme of the importance of water and family for survival in a challenging environment.,10,19,484.69025802612305
+SAS,blurred_dataset\test_image_blur_2.jpg,2,1,The image shows a herd of elephants near a watering hole in an African landscape.,10,14,8.944487810134888
+MAS,blurred_dataset\test_image_blur_2.jpg,2,2,A serene and life-sustaining scene depicting the importance of water and family bonds for survival in the African savanna.,10,21,287.20295786857605
+SAS,blurred_dataset\test_image_blur_2.jpg,2,2,The image shows a herd of elephants at a watering hole in Africa.,10,12,8.544604301452637
+MAS,blurred_dataset\test_image_blur_2.jpg,2,3,The image conveys the resilience of life and the importance of community in a challenging environment.,10,17,326.8349943161011
+SAS,blurred_dataset\test_image_blur_2.jpg,2,3,"The image depicts a herd of elephants, including adults and a baby, in their natural habitat near a watering hole, with a backdrop of mountains.",10,26,8.944871187210083
+MAS,blurred_dataset\test_image_blur_5.jpg,5,1,The image conveys a sense of tranquil serenity.,8,7,377.4206819534302
+SAS,blurred_dataset\test_image_blur_5.jpg,5,1,The image depicts a group of elephants near a watering hole within a savanna environment.,9,15,9.049130201339722
+MAS,blurred_dataset\test_image_blur_5.jpg,5,2,The image conveys a sense of peaceful resilience.,8,8,397.5929319858551
+SAS,blurred_dataset\test_image_blur_5.jpg,5,2,"The image likely depicts a group of elephants, including adults and a calf, at a watering hole in a natural landscape.",9,20,7.426657199859619
+MAS,blurred_dataset\test_image_blur_5.jpg,5,3,The image conveys a scene of peaceful survival.,8,8,441.0238690376282
+SAS,blurred_dataset\test_image_blur_5.jpg,5,3,"The image depicts a group of elephants, including a baby, near a watering hole in a grassy environment with mountains in the background.",9,21,11.520000219345093
