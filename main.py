@@ -98,6 +98,7 @@ imageEvaluatorAgent = AssistantAgent(
         - **CRITICAL:** This array **MUST** include both the initial (weaker/rejected) hypotheses and the final (stronger/accepted) hypothesis.
         - The `reasoning_for_score` for a rejected idea should explain WHY it was rejected.
         - `word_count` is the word count of the `final_conclusion` string.
+        
         """
     )
 
@@ -187,12 +188,12 @@ async def main():
     IMAGE_FILES_TO_TEST = [
         "blurred_dataset\\test_image_blur_0.jpg",
         "blurred_dataset\\test_image_blur_2.jpg",
-        "blurred_dataset\\test_image_blur_5.jpg"
-        # "blurred_dataset\\test_image_blur_10.jpg",
-        # "blurred_dataset\\test_image_blur_15.jpg",
-        # "blurred_dataset\\test_image_blur_20.jpg",
+        "blurred_dataset\\test_image_blur_5.jpg",
+        "blurred_dataset\\test_image_blur_10.jpg",
+        "blurred_dataset\\test_image_blur_15.jpg",
+        "blurred_dataset\\test_image_blur_20.jpg"
     ]
-    NUM_RUNS = 3 # Set to 3-5 for real experiment
+    NUM_RUNS = 2 # Set to 3-5 for real experiment
     
     # One CSV file for ALL results
     CSV_OUTPUT_FILE = "comparative_results.csv"
