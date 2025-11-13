@@ -3,7 +3,7 @@ from PIL import Image, ImageFilter
 
 # --- 1. SETTINGS ---
 # --- IMPORTANT: Change this to the path of your source image ---
-SOURCE_IMAGE_PATH = "C:\\Users\\hp\\Downloads\\secondTestImage.jpg" 
+SOURCE_IMAGE_PATH = "C:\\Users\\hp\\Downloads\\thirdTestImage.jpg" 
 
 # This is where the new blurred images will be saved
 OUTPUT_DIR = "blurred_dataset" 
