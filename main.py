@@ -186,12 +186,12 @@ async def run_mas_test(image_path: str):
 async def main():
     
     IMAGE_FILES_TO_TEST = [
-        "blurred_dataset\\test_image_blur_0.jpg",
-        "blurred_dataset\\test_image_blur_2.jpg",
-        "blurred_dataset\\test_image_blur_5.jpg",
-        "blurred_dataset\\test_image_blur_10.jpg",
-        "blurred_dataset\\test_image_blur_15.jpg",
-        "blurred_dataset\\test_image_blur_20.jpg"
+        "blurred_dataset\\secondTestImage_blur_0.jpg",
+        "blurred_dataset\\secondTestImage_blur_2.jpg",
+        "blurred_dataset\\secondTestImage_blur_5.jpg",
+        "blurred_dataset\\secondTestImage_blur_10.jpg",
+        "blurred_dataset\\secondTestImage_blur_15.jpg",
+        "blurred_dataset\\secondTestImage_blur_20.jpg"
     ]
     NUM_RUNS = 2 # Set to 3-5 for real experiment
     
